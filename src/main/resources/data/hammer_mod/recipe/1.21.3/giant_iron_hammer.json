@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "hammer_mod:giant_iron_head",
+  "base": "minecraft:stick",
+  "result": {
+    "count": 1,
+    "id": "hammer_mod:giant_iron_hammer"
+  },
+  "template": "hammer_mod:hammer_smithing_template"
+}

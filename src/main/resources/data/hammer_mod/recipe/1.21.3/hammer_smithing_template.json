@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X#X",
+    "X+X",
+    "XXX"
+  ],
+  "key": {
+    "X": [
+      "minecraft:diamond"
+    ],
+    "#": [
+      "hammer_mod:hammer_smithing_template"
+    ],
+    "+": [
+      "hammer_mod:stone_hammer"
+    ]
+  },
+  "result": {
+    "count": 2,
+    "id": "hammer_mod:hammer_smithing_template"
+  }
+}

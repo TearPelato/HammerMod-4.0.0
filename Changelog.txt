@@ -1,0 +1,31 @@
+Hammer Addition 4.1.0:
+*Minecraft 1.21.1 NeoForge
+
+°CHANGELOG
+
+-Changed Mod name from "Hammer Mod" to "Hammer Additions"
+-Upgraded NeoForgeVersion
+-Minimum NeoForge Requirement 21.1.170
+-Added 2 new ToolTiers: Copper & Amethyst
+-Added all the hammers variant for the 2 new custom tool material
+-Added Mod Logo in game
+-Some technical changes
+-Small issue & improvements
+-Fixed HammerSmithingTemplate name
+
+Hammer Addition 4.1.1:
+*Minecraft 1.21.1 NeoForge
+
+°CHANGELOG
+
+-Fixed some minor issues
+-Added custom tooltips for hammers
+-Changed SmithingTemplate Infos
+
+
+Hammer Addition 4.2.0:
+*Minecraft 1.21.x
+
+°CHANGELOG
+-Ported to minecraft 1.21.x
+-Added missing lootable for hammersmighingtemplate

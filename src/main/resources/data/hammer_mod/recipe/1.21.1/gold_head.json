@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wooden_trapdoor",
+  "key": {
+    "#": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    "###",
+    "#S#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "hammer_mod:gold_head"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "#minecraft:stone_bricks",
+    "X": "#minecraft:stone_tool_materials"
+  },
+  "pattern": [
+    "XXX",
+    "X#X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "hammer_mod:giant_stone_head"
+  }
+}

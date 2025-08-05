@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": [
+    "hammer_mod:giant_stone_head"
+  ],
+  "base": [
+    "hammer_mod:stone_hammer"
+  ],
+  "result": {
+    "count": 1,
+    "id": "hammer_mod:hammer_smithing_template"
+  },
+  "template": [
+    "minecraft:netherite_upgrade_smithing_template"
+  ]
+}
