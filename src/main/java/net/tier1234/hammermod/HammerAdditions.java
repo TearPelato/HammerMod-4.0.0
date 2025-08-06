@@ -1,5 +1,7 @@
 package net.tier1234.hammermod;
 
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.tier1234.hammermod.item.ModCreativeModTabs;
 import net.tier1234.hammermod.item.ModItems;
 import org.slf4j.Logger;

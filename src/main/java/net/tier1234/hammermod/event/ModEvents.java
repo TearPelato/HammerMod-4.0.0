@@ -17,7 +17,7 @@ import net.tier1234.hammermod.item.custom.HammerItem5x5;
 import java.util.HashSet;
 import java.util.Set;
 
-
+@EventBusSubscriber(modid = HammerAdditions.MOD_ID, value = Dist.CLIENT)
 public class ModEvents {
     private static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
 

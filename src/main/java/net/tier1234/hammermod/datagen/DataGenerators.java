@@ -12,6 +12,7 @@ import net.tier1234.hammermod.HammerAdditions;
 
 import java.util.concurrent.CompletableFuture;
 
+@EventBusSubscriber(modid = HammerAdditions.MOD_ID, value = Dist.CLIENT)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherClientData(GatherDataEvent.Client event) {
