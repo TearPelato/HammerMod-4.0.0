@@ -60,17 +60,6 @@ public class HammerItem2x2 extends Item {
 
         return positions;
     }
-    @Override
-    public void appendHoverText(ItemStack pStack, TooltipContext pContext, TooltipDisplay tooltipDisplay, Consumer<Component> components, TooltipFlag tooltipFlag) {
-        if(Screen.hasShiftDown()) {
-            components.accept(Component.translatable("tooltip.hammer_mod.hammer2x2.shift_down"));
-        } else {
-            components.accept(Component.translatable("tooltip.hammer_mod.hammer2x2"));
-        }
 
-
-
-        super.appendHoverText(pStack, pContext, tooltipDisplay, components, tooltipFlag);
-    }
 }
 

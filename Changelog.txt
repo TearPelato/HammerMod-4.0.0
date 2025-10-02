@@ -28,4 +28,3 @@ Hammer Addition 4.2.0:
 
 °CHANGELOG
 -Ported to minecraft 1.21.x
--Added missing lootable for hammersmighingtemplate

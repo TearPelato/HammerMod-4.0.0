@@ -10,7 +10,7 @@ import net.tier1234.hammermod.HammerAdditions;
 
 import java.util.function.Supplier;
 
-public class ModCreativeModTabs {
+public class ModCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, HammerAdditions.MOD_ID);
 
