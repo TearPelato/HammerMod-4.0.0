@@ -28,3 +28,9 @@ Hammer Addition 4.2.0:
 
 °CHANGELOG
 -Ported to minecraft 1.21.x
+
+Hammer Addition 4.2.1:
+*Minecraft 1.21.x
+
+°CHANGELOG
+- Made recipe DataGen

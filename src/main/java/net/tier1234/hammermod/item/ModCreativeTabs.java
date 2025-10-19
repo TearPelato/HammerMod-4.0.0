@@ -17,6 +17,7 @@ public class ModCreativeTabs {
     public static final Supplier<CreativeModeTab> HAMMER_MOD_ITEMS = CREATIVE_MODE_TAB.register("hammer_mod_items",
             ()-> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.STONE_HEAD.get()))
                     .title(Component.translatable("creativetab.hammer_mod.hammer_mod_items"))
+                    .withSearchBar()
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.STONE_HEAD);
                         output.accept(ModItems.IRON_HEAD);
@@ -39,6 +40,7 @@ public class ModCreativeTabs {
     public static final Supplier<CreativeModeTab> HAMMER_MOD_TOOLS = CREATIVE_MODE_TAB.register("hammer_mod_tools",
             ()-> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.HAMMER_SMITHING_TEMPLATE.get()))
                     .title(Component.translatable("creativetab.hammer_mod.hammer_mod_tools"))
+                    .withSearchBar()
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.STONE_HAMMER);
                         output.accept(ModItems.IRON_HAMMER);
