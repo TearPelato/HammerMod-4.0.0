@@ -3,15 +3,19 @@ package net.tier1234.hammermod.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.tier1234.hammermod.HammerAdditions;
 import net.tier1234.hammermod.util.ModTags;
 
+import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
-    public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, HammerAdditions.MOD_ID);
+    public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
+      @Nullable ExistingFileHelper existingFileHelper) {
+        super(output, lookupProvider, HammerAdditions.MOD_ID, existingFileHelper);
     }
 
     @Override

@@ -2,7 +2,7 @@
   "item.hammer_mod.tiny_stick": "Bastone Piccolo",
   "item.hammer_mod.stone_head": "Testa di Pietra",
   "item.hammer_mod.iron_head": "Testa di Ferro",
-  "item.hammer_mod.gold_head": "Testa D'Oror",
+  "item.hammer_mod.gold_head": "Testa D'Oro",
   "item.hammer_mod.diamond_head": "Testa di Diamante",
   "item.hammer_mod.netherite_head": "Testa di Netherite",
   "item.hammer_mod.stone_hammer": "Martello in Pietra",
@@ -47,6 +47,11 @@
   "tooltip.hammer_mod.hammer2x2": "Premi §eShift§r per maggiori Informazioni",
   "tooltip.hammer_mod.hammer5x5.shift_down": "Questo Utensile può rompere un'area 5x5",
   "tooltip.hammer_mod.hammer5x5": "Premi §eShift§r per maggiorni Informazioni",
+
+
+    "item.hammer_mod.hammer_upgrade.desc": "Miglioramento per Martelli",
+  "item.hammer_mod.hammer_upgrade.applies_to.desc": "Oggetti della Mod",
+  "item.hammer_mod.hammer_upgrade.ingredients.desc": "Oggetti della Mod",
 
   "creativetab.hammer_mod.hammer_mod_items": "HammerAdditions:Oggetti",
   "creativetab.hammer_mod.hammer_mod_tools": "HammerAdditions:Utensili"

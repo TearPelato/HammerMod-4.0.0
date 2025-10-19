@@ -1,17 +1,13 @@
 package net.tier1234.hammermod;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
@@ -43,7 +39,7 @@ public class Config
     public static boolean logDirtBlock;
     public static int magicNumber;
     public static String magicNumberIntroduction;
-    public static Set<Optional<Holder.Reference<Item>>> items;
+    public static Set<Item> items;
 
     private static boolean validateItemName(final Object obj)
     {
