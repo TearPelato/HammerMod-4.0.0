@@ -1,5 +1,6 @@
 package net.tier1234.hammermod.item.custom;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -55,5 +56,16 @@ public class HammerItem extends Item {
         }
 
         return positions;
+    }
+    @Override
+    public void appendHoverText(ItemStack pStack, TooltipContext pContext, TooltipDisplay tooltipDisplay, Consumer<Component> components, TooltipFlag tooltipFlag) {
+        if(Minecraft.getInstance().hasShiftDown()) {
+            components.accept(Component.translatable("tooltip.hammer_mod.hammer.shift_down"));
+        } else {
+            components.accept(Component.translatable("tooltip.hammer_mod.hammer"));
+        }
+
+
+        super.appendHoverText(pStack, pContext, tooltipDisplay, components, tooltipFlag);
     }
 }
