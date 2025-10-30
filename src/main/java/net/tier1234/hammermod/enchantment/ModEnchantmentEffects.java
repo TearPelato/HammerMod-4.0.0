@@ -6,6 +6,7 @@ import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.hammermod.HammerAdditions;
+import net.tier1234.hammermod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
 
 import java.util.function.Supplier;
@@ -17,6 +18,9 @@ public class ModEnchantmentEffects {
 
     public static final Supplier<MapCodec<? extends EnchantmentEntityEffect>> DIGGING =
             ENCHANTMENT_EFFECTS.register("digging", () -> DiggingEnchantmentEffect.CODEC);
+
+    public static final Supplier<MapCodec<? extends  EnchantmentEntityEffect>> AUTOSMELT =
+            ENCHANTMENT_EFFECTS.register("autosmelt", ()-> AutoSmeltEnchantmentEffect.CODEC);
 
     public static void register(IEventBus eventBus) {
         ENCHANTMENT_EFFECTS.register(eventBus);

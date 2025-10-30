@@ -6,6 +6,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.EnchantedItemInUse;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
 import net.minecraft.world.level.ClipContext;
@@ -13,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.tier1234.hammermod.item.ModCreativeModTabs;
 
 public class DiggingEnchantmentEffect implements EnchantmentEntityEffect {
 
@@ -75,5 +78,9 @@ public class DiggingEnchantmentEffect implements EnchantmentEntityEffect {
     @Override
     public MapCodec<? extends EnchantmentEntityEffect> codec() {
         return CODEC;
+    }
+
+    public boolean allowedInCreativeTab(Item book, CreativeModeTab tab) {
+        return tab == ModCreativeModTabs.HAMMER_MOD_ITEMS;
     }
 }

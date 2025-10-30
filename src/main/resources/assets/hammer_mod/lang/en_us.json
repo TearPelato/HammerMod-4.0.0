@@ -58,5 +58,5 @@
   "creativetab.hammer_mod.hammer_mod_tools": "HammerAdditions:Tools",
 
   "enchantment.hammer_mod.digging": "Digging",
-  "enchantment.hammer_mod.digging.desc": "Mines a 3x3 area at once"
+  "enchantment.hammer_mod.autosmelt": "AutoSmelt"
 }

@@ -10,6 +10,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.tier1234.hammermod.HammerAdditions;
+import net.tier1234.hammermod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
 
 public class ModEnchantments {
@@ -17,6 +18,11 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> DIGGING = ResourceKey.create(
             Registries.ENCHANTMENT,
              ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "digging")
+    );
+
+    public static final ResourceKey<Enchantment> AUTO_SMELT = ResourceKey.create(
+            Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "autosmelt")
     );
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
@@ -37,6 +43,22 @@ public class ModEnchantments {
                 EnchantmentTarget.ATTACKER,
                 EnchantmentTarget.VICTIM,
                 new DiggingEnchantmentEffect()
+        ));
+
+        register(context, AUTO_SMELT, Enchantment.enchantment(Enchantment.definition(
+                items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                items.getOrThrow(ItemTags.PICKAXES),
+                2,
+                1,
+                Enchantment.dynamicCost(15, 10),
+                Enchantment.dynamicCost(50, 10),
+                3,
+                EquipmentSlotGroup.MAINHAND
+        )).withEffect(
+                EnchantmentEffectComponents.POST_ATTACK,
+                EnchantmentTarget.ATTACKER,
+                EnchantmentTarget.VICTIM,
+                new AutoSmeltEnchantmentEffect()
         ));
     }
 
