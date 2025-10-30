@@ -11,6 +11,7 @@ import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
 import java.util.function.Supplier;
 
 public class ModEnchantmentEffects {
+
     public static final DeferredRegister<MapCodec<? extends EnchantmentEntityEffect>> ENCHANTMENT_EFFECTS =
             DeferredRegister.create(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, HammerAdditions.MOD_ID);
 

@@ -1,15 +1,14 @@
 {
   "anvil_cost": 3,
   "description": {
-    "translate": "enchantment.hammer_mod.digging.desc"
+    "translate": "enchantment.hammer_mod.digging"
   },
   "effects": {
     "minecraft:post_attack": [
       {
         "affected": "victim",
         "effect": {
-          "type": "hammer_mod:digging",
-          "digging": {}
+          "type": "hammer_mod:digging"
         },
         "enchanted": "attacker"
       }

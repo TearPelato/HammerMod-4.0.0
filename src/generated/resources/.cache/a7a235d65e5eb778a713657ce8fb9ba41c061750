@@ -1,3 +1,4 @@
-// 1.21.1	2025-10-19T18:42:58.1307522	Tags for minecraft:item mod id hammer_mod
+// 1.21.1	2025-10-30T20:26:26.9177825	Tags for minecraft:item mod id hammer_mod
 bde6ca31173d1f22d5f6fe355dc90c9faa35b239 data/hammer_mod/tags/item/amethyst_repairable.json
 6222fd0d7d2ce08ee1f70be68a61f4e167dda650 data/hammer_mod/tags/item/copper_repairable.json
+2b132650bf0121ece2e0593564fd016255809b75 data/hammer_mod/tags/item/hammers.json

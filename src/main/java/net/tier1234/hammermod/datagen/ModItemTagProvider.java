@@ -3,10 +3,12 @@ package net.tier1234.hammermod.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.tier1234.hammermod.HammerAdditions;
+import net.tier1234.hammermod.item.ModItems;
 import net.tier1234.hammermod.util.ModTags;
 
 import javax.annotation.Nullable;
@@ -25,6 +27,31 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.COPPER_INGOT.asItem());
         this.tag(ModTags.Items.AMETHYST_REPAIRABLE)
                 .add(Items.AMETHYST_SHARD.asItem());
+
+        this.tag(ModTags.Items.HAMMERS)
+                .add(ModItems.STONE_HAMMER.get())
+                .add(ModItems.COPPER_HAMMER.get())
+                .add(ModItems.IRON_HAMMER.get())
+                .add(ModItems.GOLD_HAMMER.get())
+                .add(ModItems.DIAMOND_HAMMER.get())
+                .add(ModItems.NETHERITE_HAMMER.get())
+                .add(ModItems.AMETHYST_HAMMER.get())
+
+                .add(ModItems.TINY_STONE_HAMMER.get())
+                .add(ModItems.TINY_COPPER_HAMMER.get())
+                .add(ModItems.TINY_GOLD_HAMMER.get())
+                .add(ModItems.TINY_DIAMOND_HAMMER.get())
+                .add(ModItems.TINY_NETHERITE_HAMMER.get())
+                .add(ModItems.TINY_IRON_HAMMER.get())
+                .add(ModItems.TINY_AMETHYST_HAMMER.get())
+
+                .add(ModItems.GIANT_STONE_HAMMER.get())
+                .add(ModItems.GIANT_COPPER_HAMMER.get())
+                .add(ModItems.GIANT_IRON_HAMMER.get())
+                .add(ModItems.GIANT_GOLD_HAMMER.get())
+                .add(ModItems.GIANT_DIAMOND_HAMMER.get())
+                .add(ModItems.GIANT_NETHERITE_HAMMER.get())
+                .add(ModItems.GIANT_AMETHYST_HAMMER.get());
 
     }
 }

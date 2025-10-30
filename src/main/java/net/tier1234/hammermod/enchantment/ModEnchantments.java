@@ -14,26 +14,30 @@ import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
 
 public class ModEnchantments {
 
-
-    public static final ResourceKey<Enchantment> DIGGING = ResourceKey.create(Registries.ENCHANTMENT,
-            ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "digging"));
+    public static final ResourceKey<Enchantment> DIGGING = ResourceKey.create(
+            Registries.ENCHANTMENT,
+             ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "digging")
+    );
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         var enchantments = context.lookup(Registries.ENCHANTMENT);
         var items = context.lookup(Registries.ITEM);
 
-
         register(context, DIGGING, Enchantment.enchantment(Enchantment.definition(
-                        items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
-                        items.getOrThrow(ItemTags.PICKAXES),
-                        2,
-                        1,
-                        Enchantment.dynamicCost(10, 8),
-                        Enchantment.dynamicCost(40, 8),
-                        3,
-                        EquipmentSlotGroup.MAINHAND))
-                .withEffect(EnchantmentEffectComponents.POST_ATTACK, EnchantmentTarget.ATTACKER,
-                        EnchantmentTarget.VICTIM, new DiggingEnchantmentEffect()));
+                items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                items.getOrThrow(ItemTags.PICKAXES),
+                2,
+                1,
+                Enchantment.dynamicCost(10, 8),
+                Enchantment.dynamicCost(40, 8),
+                3,
+                EquipmentSlotGroup.MAINHAND
+        )).withEffect(
+                EnchantmentEffectComponents.POST_ATTACK,
+                EnchantmentTarget.ATTACKER,
+                EnchantmentTarget.VICTIM,
+                new DiggingEnchantmentEffect()
+        ));
     }
 
     private static void register(BootstrapContext<Enchantment> registry, ResourceKey<Enchantment> key,

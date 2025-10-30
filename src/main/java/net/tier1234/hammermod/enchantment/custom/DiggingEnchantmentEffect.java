@@ -1,22 +1,23 @@
 package net.tier1234.hammermod.enchantment.custom;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantedItemInUse;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 public class DiggingEnchantmentEffect implements EnchantmentEntityEffect {
 
     public static final MapCodec<DiggingEnchantmentEffect> CODEC =
-            Codec.unit(DiggingEnchantmentEffect::new).fieldOf("digging");
+            MapCodec.unit(DiggingEnchantmentEffect::new);
 
     @Override
     public void apply(ServerLevel serverLevel,
@@ -25,29 +26,48 @@ public class DiggingEnchantmentEffect implements EnchantmentEntityEffect {
                       Entity entity,
                       Vec3 vec3) {
 
-        if (enchantmentLevel <= 0) return;
-        if (serverLevel.isClientSide) return;
-
+        if (enchantmentLevel <= 0 || serverLevel.isClientSide) return;
         if (!(entity instanceof LivingEntity user)) return;
-        BlockPos pos = BlockPos.containing(vec3);
 
-        BlockState center = serverLevel.getBlockState(pos);
-        if (!center.requiresCorrectToolForDrops()) return;
+        BlockPos centerPos = BlockPos.containing(vec3);
 
-        for (int dx = -1; dx <= 1; dx++) {
-            for (int dz = -1; dz <= 1; dz++) {
-                if (dx == 0 && dz == 0) continue;
+        // Raytrace per capire la direzione
+        Vec3 eyePos = user.getEyePosition(1f);
+        Vec3 lookVec = user.getViewVector(1f).scale(6f);
+        BlockHitResult traceResult = serverLevel.clip(new ClipContext(
+                eyePos,
+                eyePos.add(lookVec),
+                ClipContext.Block.COLLIDER,
+                ClipContext.Fluid.NONE,
+                user
+        ));
 
-                BlockPos offsetPos = pos.offset(dx, 0, dz);
-                BlockState state = serverLevel.getBlockState(offsetPos);
+        if (traceResult.getType() == HitResult.Type.MISS) return;
 
-                if (state.isAir()) continue;
-                float destroySpeed = state.getDestroySpeed(serverLevel, offsetPos);
-                if (destroySpeed < 0) continue;
+        Direction dir = traceResult.getDirection();
+        int range = 1; // 3x3 → range 1
 
-                if (!state.requiresCorrectToolForDrops()) continue;
+        for (int dx = -range; dx <= range; dx++) {
+            for (int dy = -range; dy <= range; dy++) {
+                for (int dz = -range; dz <= range; dz++) {
+                    BlockPos targetPos;
 
-                serverLevel.destroyBlock(offsetPos, true, user);
+                    switch (dir) {
+                        case UP, DOWN -> targetPos = centerPos.offset(dx, 0, dz);
+                        case NORTH, SOUTH -> targetPos = centerPos.offset(dx, dy, 0);
+                        case EAST, WEST -> targetPos = centerPos.offset(0, dy, dz);
+                        default -> targetPos = centerPos;
+                    }
+
+                    if (targetPos.equals(centerPos)) continue;
+
+                    BlockState state = serverLevel.getBlockState(targetPos);
+                    if (state.isAir()) continue;
+                    if (state.getDestroySpeed(serverLevel, targetPos) < 0) continue;
+                    if (!state.requiresCorrectToolForDrops()) continue;
+
+                    serverLevel.destroyBlock(targetPos, true, user);
+                }
             }
         }
     }
