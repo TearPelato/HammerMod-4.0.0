@@ -16,6 +16,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import net.tier1234.hammermod.HammerAdditions;
 import net.tier1234.hammermod.enchantment.ModEnchantments;
 import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
+import net.tier1234.hammermod.enchantment.custom.ExcavatorEnchantmentEffect;
 import net.tier1234.hammermod.item.custom.HammerItem;
 import net.tier1234.hammermod.item.custom.HammerItem2x2;
 import net.tier1234.hammermod.item.custom.HammerItem5x5;
@@ -113,7 +114,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+    public static void onBlockBreakDigging(BlockEvent.BreakEvent event) {
         if (!(event.getPlayer() instanceof ServerPlayer player)) return;
 
         Level level = player.level();
@@ -135,4 +136,28 @@ public class ModEvents {
         effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
     }
 
+    @SubscribeEvent
+    public static void onBlockBreakExcavator(BlockEvent.BreakEvent event) {
+        if (!(event.getPlayer() instanceof ServerPlayer player)) return;
+
+        Level level = player.level();
+        if (level.isClientSide) return;
+
+        ItemStack tool = player.getMainHandItem();
+        var enchantmentHolder = level.registryAccess()
+                .registryOrThrow(Registries.ENCHANTMENT)
+                .getHolder(ModEnchantments.EXCAVATOR)
+                .orElse(null);
+
+        if (enchantmentHolder == null) return;
+
+        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, tool);
+        if (enchantLevel <= 0) return;
+
+        BlockPos pos = event.getPos();
+        ExcavatorEnchantmentEffect effect = new ExcavatorEnchantmentEffect();
+        effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
+    }
 }
+
+

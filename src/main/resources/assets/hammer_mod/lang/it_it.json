@@ -54,5 +54,10 @@
   "item.hammer_mod.hammer_upgrade.ingredients.desc": "Oggetti della Mod",
 
   "creativetab.hammer_mod.hammer_mod_items": "HammerAdditions:Oggetti",
-  "creativetab.hammer_mod.hammer_mod_tools": "HammerAdditions:Utensili"
+  "creativetab.hammer_mod.hammer_mod_tools": "HammerAdditions:Utensili",
+
+  "enchantment.hammer_mod.digging": "Digging",
+  "enchantment.hammer_mod.autosmelt": "AutoSmelt",
+  "enchantment.hammer_mod.excavator": "Excavator"
+
 }

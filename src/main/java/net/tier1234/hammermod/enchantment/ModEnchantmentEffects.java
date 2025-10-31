@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.tier1234.hammermod.HammerAdditions;
 import net.tier1234.hammermod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
+import net.tier1234.hammermod.enchantment.custom.ExcavatorEnchantmentEffect;
 
 import java.util.function.Supplier;
 
@@ -21,6 +22,9 @@ public class ModEnchantmentEffects {
 
     public static final Supplier<MapCodec<? extends  EnchantmentEntityEffect>> AUTOSMELT =
             ENCHANTMENT_EFFECTS.register("autosmelt", ()-> AutoSmeltEnchantmentEffect.CODEC);
+
+    public static final Supplier<MapCodec<? extends  EnchantmentEntityEffect>> EXCAVATOR =
+            ENCHANTMENT_EFFECTS.register("excavator",()-> ExcavatorEnchantmentEffect.CODEC);
 
     public static void register(IEventBus eventBus) {
         ENCHANTMENT_EFFECTS.register(eventBus);
