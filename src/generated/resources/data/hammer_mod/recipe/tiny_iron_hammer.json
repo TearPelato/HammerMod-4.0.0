@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "hammer_mod:tiny_stick",
+  "base": "hammer_mod:iron_head",
+  "result": {
+    "id": "hammer_mod:tiny_iron_hammer"
+  },
+  "template": "hammer_mod:hammer_smithing_template"
+}
