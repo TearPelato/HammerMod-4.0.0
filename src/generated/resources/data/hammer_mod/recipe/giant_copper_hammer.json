@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:stick",
+  "base": "hammer_mod:giant_copper_head",
+  "result": {
+    "id": "hammer_mod:giant_copper_hammer"
+  },
+  "template": "hammer_mod:hammer_smithing_template"
+}

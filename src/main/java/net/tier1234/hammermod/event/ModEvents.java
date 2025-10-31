@@ -1,15 +1,23 @@
 package net.tier1234.hammermod.event;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.tier1234.hammermod.HammerAdditions;
+import net.tier1234.hammermod.enchantments.ModEnchantments;
+import net.tier1234.hammermod.enchantments.custom.DiggingEnchantmentEffect;
+import net.tier1234.hammermod.enchantments.custom.ExcavatorEnchantmentEffect;
+import net.tier1234.hammermod.enchantments.custom.VeinMinerEnchantmentEffect;
 import net.tier1234.hammermod.item.custom.HammerItem;
 import net.tier1234.hammermod.item.custom.HammerItem2x2;
 import net.tier1234.hammermod.item.custom.HammerItem5x5;
@@ -104,6 +112,79 @@ public class ModEvents {
                 HARVESTED_BLOCKS.remove(pos);
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onBlockBreakDigging(BlockEvent.BreakEvent event) {
+        if (!(event.getPlayer() instanceof ServerPlayer player)) return;
+
+        Level level = player.level();
+        if (level.isClientSide) return;
+
+        ItemStack tool = player.getMainHandItem();
+        var enchantmentHolder = level.registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .get(ModEnchantments.DIGGING)
+                .orElse(null);
+
+        if (enchantmentHolder == null) return;
+
+        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, tool);
+        if (enchantLevel <= 0) return;
+
+        BlockPos pos = event.getPos();
+        DiggingEnchantmentEffect effect = new DiggingEnchantmentEffect();
+        effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
+    }
+
+    @SubscribeEvent
+    public static void onBlockBreakExcavator(BlockEvent.BreakEvent event) {
+        if (!(event.getPlayer() instanceof ServerPlayer player)) return;
+
+        Level level = player.level();
+        if (level.isClientSide) return;
+
+        ItemStack tool = player.getMainHandItem();
+        var enchantmentHolder = level.registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .get(ModEnchantments.EXCAVATOR)
+                .orElse(null);
+
+        if (enchantmentHolder == null) return;
+
+        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, tool);
+        if (enchantLevel <= 0) return;
+
+        BlockPos pos = event.getPos();
+        ExcavatorEnchantmentEffect effect = new ExcavatorEnchantmentEffect();
+        effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
+    }
+
+
+
+    @SubscribeEvent
+    public static void onBlockBreakVeinMiner(BlockEvent.BreakEvent event) {
+        if (!(event.getPlayer() instanceof ServerPlayer player)) return;
+
+        Level level = player.level();
+        if (level.isClientSide) return;
+
+        ItemStack tool = player.getMainHandItem();
+
+        var enchantmentHolder = level.registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .get(ModEnchantments.VEINMINER)
+                .orElse(null);
+
+        if (enchantmentHolder == null) return;
+
+        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, tool);
+        if (enchantLevel <= 0) return;
+
+        BlockPos pos = event.getPos();
+
+        VeinMinerEnchantmentEffect effect = new VeinMinerEnchantmentEffect();
+        effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
     }
 
 }
