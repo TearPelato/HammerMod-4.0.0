@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:amethyst_block",
+    "C": "minecraft:amethyst_shard"
+  },
+  "pattern": [
+    "###",
+    "#C#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "hammer_mod:giant_amethyst_head"
+  }
+}

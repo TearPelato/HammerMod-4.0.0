@@ -24,6 +24,7 @@ public class DataGenerators {
         generator.addProvider(true, blockTagsProvider);
         generator.addProvider(true, new ModItemTagProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
+        generator.addProvider(true, new ModDatapackProvider(packOutput, lookupProvider));
     }
 
     @SubscribeEvent
@@ -36,6 +37,6 @@ public class DataGenerators {
         generator.addProvider(true, blockTagsProvider);
         generator.addProvider(true, new ModItemTagProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
-
+        generator.addProvider(true, new ModDatapackProvider(packOutput, lookupProvider));
     }
 }

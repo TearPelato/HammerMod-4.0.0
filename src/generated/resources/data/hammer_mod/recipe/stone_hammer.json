@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:cobblestone",
+    "C": "minecraft:stick"
+  },
+  "pattern": [
+    "###",
+    "#C#",
+    " C "
+  ],
+  "result": {
+    "count": 1,
+    "id": "hammer_mod:stone_hammer"
+  }
+}
