@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:diamond_block",
+    "C": "minecraft:diamond"
+  },
+  "pattern": [
+    "###",
+    "#C#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "hammer_mod:giant_diamond_head"
+  }
+}

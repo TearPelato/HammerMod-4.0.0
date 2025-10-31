@@ -2,6 +2,7 @@ package net.tier1234.hammermod;
 
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.tier1234.hammermod.enchantments.ModEnchantmentEffects;
 import net.tier1234.hammermod.item.ModCreativeModTabs;
 import net.tier1234.hammermod.item.ModItems;
 import org.slf4j.Logger;
@@ -26,20 +27,16 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 @Mod(HammerAdditions.MOD_ID)
 public class HammerAdditions {
     public static final String MOD_ID = "hammer_mod";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public HammerAdditions(IEventBus modEventBus, ModContainer modContainer) {
-        // Register the commonSetup method for modloading
-
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
+        ModEnchantmentEffects.register(modEventBus);
 
 
 
