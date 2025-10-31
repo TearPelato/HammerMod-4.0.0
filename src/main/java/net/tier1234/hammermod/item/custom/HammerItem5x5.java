@@ -16,7 +16,6 @@ import net.minecraft.world.phys.HitResult;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class HammerItem5x5 extends DiggerItem {
     public HammerItem5x5(Tier tier, Properties properties) {
