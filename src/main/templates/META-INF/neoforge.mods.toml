@@ -4,7 +4,7 @@ loaderVersion="${loader_version_range}"
 license="${mod_license}"
 [[mods]]
 modId="hammer_mod"
-version="4.0.3"
+version="${mod_version}"
 displayName="Hammer Additions" #mandatory
 logoFile = "hammer_addition_title.png"
 authors="${mod_authors}" #optional
