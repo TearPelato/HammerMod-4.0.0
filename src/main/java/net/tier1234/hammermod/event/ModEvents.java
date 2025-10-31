@@ -15,6 +15,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.tier1234.hammermod.HammerAdditions;
 import net.tier1234.hammermod.enchantment.ModEnchantments;
+import net.tier1234.hammermod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.ExcavatorEnchantmentEffect;
 import net.tier1234.hammermod.item.custom.HammerItem;
@@ -156,6 +157,30 @@ public class ModEvents {
 
         BlockPos pos = event.getPos();
         ExcavatorEnchantmentEffect effect = new ExcavatorEnchantmentEffect();
+        effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
+    }
+
+    @SubscribeEvent
+    public static void onBlockBreakAutoSmelt(BlockEvent.BreakEvent event) {
+        if (!(event.getPlayer() instanceof ServerPlayer player)) return;
+
+        Level level = player.level();
+        if (level.isClientSide) return;
+
+        ItemStack tool = player.getMainHandItem();
+
+        var enchantmentHolder = level.registryAccess()
+                .registryOrThrow(Registries.ENCHANTMENT)
+                .getHolder(ModEnchantments.AUTO_SMELT)
+                .orElse(null);
+
+        if (enchantmentHolder == null) return;
+
+        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, tool);
+        if (enchantLevel <= 0) return;
+
+        BlockPos pos = event.getPos();
+        AutoSmeltEnchantmentEffect effect = new AutoSmeltEnchantmentEffect();
         effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
     }
 }
