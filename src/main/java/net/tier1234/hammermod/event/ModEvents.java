@@ -15,9 +15,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.tier1234.hammermod.HammerAdditions;
 import net.tier1234.hammermod.enchantment.ModEnchantments;
-import net.tier1234.hammermod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.ExcavatorEnchantmentEffect;
+import net.tier1234.hammermod.enchantment.custom.VeinMinerEnchantmentEffect;
 import net.tier1234.hammermod.item.custom.HammerItem;
 import net.tier1234.hammermod.item.custom.HammerItem2x2;
 import net.tier1234.hammermod.item.custom.HammerItem5x5;
@@ -160,8 +160,27 @@ public class ModEvents {
         effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
     }
 
+  // TODO  @SubscribeEvent
+//    public static void onBlockBreakAutoSmelt(BlockEvent.BreakEvent event) {
+//        if (!(event.getPlayer() instanceof ServerPlayer player)) return;
+//        Level level = player.level();
+//        if (level.isClientSide) return;
+//        ItemStack tool = player.getMainHandItem();
+//        var enchantmentHolder = level.registryAccess()
+//                .registryOrThrow(Registries.ENCHANTMENT)
+//                .getHolder(ModEnchantments.AUTO_SMELT)
+//                .orElse(null);
+//        if (enchantmentHolder == null) return;
+//        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, tool);
+//        if (enchantLevel <= 0) return
+//        BlockPos pos = event.getPos();
+//        AutoSmeltEnchantmentEffect effect = new AutoSmeltEnchantmentEffect();
+//        effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
+//    }
+
+
     @SubscribeEvent
-    public static void onBlockBreakAutoSmelt(BlockEvent.BreakEvent event) {
+    public static void onBlockBreakVeinMiner(BlockEvent.BreakEvent event) {
         if (!(event.getPlayer() instanceof ServerPlayer player)) return;
 
         Level level = player.level();
@@ -169,9 +188,10 @@ public class ModEvents {
 
         ItemStack tool = player.getMainHandItem();
 
+        // Recupera il riferimento all'enchantment registrato
         var enchantmentHolder = level.registryAccess()
                 .registryOrThrow(Registries.ENCHANTMENT)
-                .getHolder(ModEnchantments.AUTO_SMELT)
+                .getHolder(ModEnchantments.VEINMINER)
                 .orElse(null);
 
         if (enchantmentHolder == null) return;
@@ -180,9 +200,12 @@ public class ModEvents {
         if (enchantLevel <= 0) return;
 
         BlockPos pos = event.getPos();
-        AutoSmeltEnchantmentEffect effect = new AutoSmeltEnchantmentEffect();
+
+        // Applica l'effetto
+        VeinMinerEnchantmentEffect effect = new VeinMinerEnchantmentEffect();
         effect.apply((ServerLevel) level, enchantLevel, null, player, pos.getCenter());
     }
+
 }
 
 

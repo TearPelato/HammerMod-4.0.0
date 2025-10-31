@@ -1,6 +1,7 @@
 package net.tier1234.hammermod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,7 +21,7 @@ import org.slf4j.Logger;
 @Mod(HammerAdditions.MOD_ID)
 public class HammerAdditions {
     public static final String MOD_ID = "hammer_mod";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -61,6 +62,10 @@ public class HammerAdditions {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
 
+    }
+
+    public static ResourceLocation id(String val) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, val);
     }
 
 }

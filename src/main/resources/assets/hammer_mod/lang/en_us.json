@@ -59,5 +59,9 @@
 
   "enchantment.hammer_mod.digging": "Digging",
   "enchantment.hammer_mod.autosmelt": "AutoSmelt",
-  "enchantment.hammer_mod.excavator": "Excavator"
+  "enchantment.hammer_mod.excavator": "Excavator",
+  "enchantment.hammer_mod.veinminer": "VeinMiner",
+
+
+  "hammer_mod.configuration.veinminer_group": "VeinMiner Block Config"
 }

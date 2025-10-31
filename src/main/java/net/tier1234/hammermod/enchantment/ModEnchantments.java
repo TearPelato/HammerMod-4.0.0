@@ -10,9 +10,9 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.EnchantmentTarget;
 import net.tier1234.hammermod.HammerAdditions;
-import net.tier1234.hammermod.enchantment.custom.AutoSmeltEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.DiggingEnchantmentEffect;
 import net.tier1234.hammermod.enchantment.custom.ExcavatorEnchantmentEffect;
+import net.tier1234.hammermod.enchantment.custom.VeinMinerEnchantmentEffect;
 
 public class ModEnchantments {
 
@@ -21,14 +21,14 @@ public class ModEnchantments {
              ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "digging")
     );
 
-    public static final ResourceKey<Enchantment> AUTO_SMELT = ResourceKey.create(
-            Registries.ENCHANTMENT,
-            ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "autosmelt")
-    );
 
     public static final ResourceKey<Enchantment> EXCAVATOR = ResourceKey.create(
             Registries.ENCHANTMENT,
             ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "excavator")
+    );
+    public static final ResourceKey<Enchantment> VEINMINER = ResourceKey.create(
+            Registries.ENCHANTMENT,
+            ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "veinminer")
     );
 
 
@@ -52,22 +52,6 @@ public class ModEnchantments {
                 new DiggingEnchantmentEffect()
         ));
 
-        register(context, AUTO_SMELT, Enchantment.enchantment(Enchantment.definition(
-                items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
-                items.getOrThrow(ItemTags.PICKAXES),
-                2,
-                1,
-                Enchantment.dynamicCost(15, 10),
-                Enchantment.dynamicCost(50, 10),
-                3,
-                EquipmentSlotGroup.MAINHAND
-        )).withEffect(
-                EnchantmentEffectComponents.POST_ATTACK,
-                EnchantmentTarget.ATTACKER,
-                EnchantmentTarget.VICTIM,
-                new AutoSmeltEnchantmentEffect()
-        ));
-
         register(context, EXCAVATOR, Enchantment.enchantment(Enchantment.definition(
                 items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                 items.getOrThrow(ItemTags.PICKAXES),
@@ -84,6 +68,22 @@ public class ModEnchantments {
                 new ExcavatorEnchantmentEffect()
         ));
 
+
+        register(context, VEINMINER, Enchantment.enchantment(Enchantment.definition(
+                items.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                items.getOrThrow(ItemTags.PICKAXES),
+                2,
+                1,
+                Enchantment.dynamicCost(10, 8),
+                Enchantment.dynamicCost(40, 8),
+                5,
+                EquipmentSlotGroup.MAINHAND
+        )).withEffect(
+                EnchantmentEffectComponents.POST_ATTACK,
+                EnchantmentTarget.ATTACKER,
+                EnchantmentTarget.VICTIM,
+                new VeinMinerEnchantmentEffect()
+        ));
 
     }
 
