@@ -3,7 +3,7 @@ package net.tier1234.hammermod.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -236,7 +236,7 @@ public class ModRecipeProvider extends RecipeProvider {
                    ModItems.GIANT_NETHERITE_HAMMER.get()
            )
                    .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                   .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_netherite_hammer")));
+                   .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_netherite_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -246,7 +246,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.GIANT_DIAMOND_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_diamond_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_diamond_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -256,7 +256,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.GIANT_IRON_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_iron_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_iron_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -266,7 +266,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.GIANT_GOLD_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_gold_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_gold_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -276,7 +276,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.GIANT_COPPER_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_copper_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_copper_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -286,7 +286,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.GIANT_AMETHYST_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_amethyst_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_amethyst_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -296,7 +296,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.GIANT_STONE_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_stone_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "giant_stone_hammer")));
 
 
 //Tiny Hammers
@@ -309,7 +309,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.TINY_NETHERITE_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_netherite_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_netherite_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -319,7 +319,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.TINY_DIAMOND_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_diamond_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_diamond_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -329,7 +329,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.TINY_IRON_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_iron_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_iron_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -339,7 +339,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.TINY_GOLD_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_gold_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_gold_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -349,7 +349,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.TINY_COPPER_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_copper_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_copper_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -359,7 +359,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.TINY_AMETHYST_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_amethyst_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_amethyst_hammer")));
 
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(ModItems.HAMMER_SMITHING_TEMPLATE),
@@ -369,7 +369,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ModItems.TINY_STONE_HAMMER.get()
                 )
                 .unlocks("has_custom_template", has(ModItems.HAMMER_SMITHING_TEMPLATE))
-                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_stone_hammer")));
+                .save(output, String.valueOf(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, "tiny_stone_hammer")));
 
 
 
