@@ -1,5 +1,5 @@
 {
-  "item.hammer_mod.tiny_stick": "Bastone Piccolo",
+  "item.hammer_mod.tiny_stick": "Bastoncino",
   "item.hammer_mod.stone_head": "Testa di Pietra",
   "item.hammer_mod.iron_head": "Testa di Ferro",
   "item.hammer_mod.gold_head": "Testa D'Oro",
@@ -56,8 +56,8 @@
   "creativetab.hammer_mod.hammer_mod_items": "HammerAdditions:Oggetti",
   "creativetab.hammer_mod.hammer_mod_tools": "HammerAdditions:Utensili",
 
-  "enchantment.hammer_mod.digging": "Digging",
+  "enchantment.hammer_mod.digging": "Distruttore",
   "enchantment.hammer_mod.autosmelt": "AutoSmelt",
-  "enchantment.hammer_mod.excavator": "Excavator",
-  "enchantment.hammer_mod.veinminer": "VeinMiner"
+  "enchantment.hammer_mod.excavator": "Scavatore",
+  "enchantment.hammer_mod.veinminer": "Distruttore di Vene"
 }
