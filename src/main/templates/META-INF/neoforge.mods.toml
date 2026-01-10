@@ -9,7 +9,7 @@ displayName="Hammer Additions" #mandatory
 logoFile = "hammer_addition_title.png"
 authors="${mod_authors}" #optional
 description='''${mod_description}'''
-updateJSONURL="https://tearplato.github.io/HammerMod-4.0/version-check-nf.json"
+updateJSONURL="https://tearpelato.github.io/HammerMod-4.0.0/version-check-nf.json"
 
 
 [[dependencies.hammer_mod]]
