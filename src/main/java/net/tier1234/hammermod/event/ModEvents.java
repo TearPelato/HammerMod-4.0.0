@@ -5,15 +5,19 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LevelEvent;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -29,7 +33,9 @@ import net.tier1234.hammermod.item.custom.HammerItem;
 import net.tier1234.hammermod.item.custom.HammerItem2x2;
 import net.tier1234.hammermod.item.custom.HammerItem5x5;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @EventBusSubscriber(modid = HammerAdditions.MOD_ID, value = Dist.CLIENT)
@@ -195,28 +201,62 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+    public static void onBlockBreakAutoSmelt(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         if (player == null || player.level().isClientSide) return;
 
-        ItemStack tool = player.getMainHandItem();
-        Level level = player.level();
+        ServerPlayer serverPlayer = (ServerPlayer) player;
+        ServerLevel level = (ServerLevel) event.getLevel();
 
-        var enchantmentHolder = level.registryAccess()
+        ItemStack tool = serverPlayer.getMainHandItem();
+
+        // Prendi il holder del tuo enchantment autosmelt
+        var enchantHolder = level.registryAccess()
                 .registryOrThrow(Registries.ENCHANTMENT)
                 .getHolder(ModEnchantments.AUTOSMELT)
                 .orElse(null);
-        int enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, tool);
-        if (enchantLevel > 0) {
-            event.setCanceled(true);
 
-            BlockState state = event.getState();
-            BlockPos pos = event.getPos();
-            ServerLevel slevel = (ServerLevel) event.getLevel();
+        if (enchantHolder == null) return;
 
-            slevel.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-            slevel.levelEvent(LevelEvent.PARTICLES_DESTROY_BLOCK, pos, Block.getId(state));
+        int level2 = EnchantmentHelper.getTagEnchantmentLevel(enchantHolder, tool);
+        if (level2 <= 0) return;
+
+
+        BlockPos pos = event.getPos();
+        BlockState state = event.getState();
+
+        if (state.isAir() || state.getDestroySpeed(level, pos) < 0) return;
+
+
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+
+        List<ItemStack> drops = Block.getDrops(
+                state,
+                level,
+                pos,
+                blockEntity,
+                serverPlayer,
+                tool
+        );
+
+        if (drops.isEmpty()) return;
+
+        // Trasforma i drop in versione smeltata dove possibile
+        List<ItemStack> finalDrops = new ArrayList<>();
+
+        AutoSmeltEnchantmentEffect autosmeltEffect = new AutoSmeltEnchantmentEffect();
+
+        for (ItemStack drop : drops) {
+            ItemStack smelted = autosmeltEffect.trySmeltBlock(level,state,tool,blockEntity,player);
+            finalDrops.add(smelted.isEmpty() ? drop.copy() : smelted);
         }
+
+        for (ItemStack toDrop : finalDrops) {
+            if (!toDrop.isEmpty()) {
+                Block.popResource(level, pos, toDrop);
+            }
+        }
+
     }
 
 }

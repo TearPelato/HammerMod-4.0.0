@@ -92,7 +92,7 @@ public class AutoSmeltEnchantmentEffect implements EnchantmentEntityEffect {
 
     }
 
-    private ItemStack trySmeltBlock(ServerLevel level, BlockState state, ItemStack tool, @Nullable BlockEntity blockEntity, Player player) {
+    public ItemStack trySmeltBlock(ServerLevel level, BlockState state, ItemStack tool, @Nullable BlockEntity blockEntity, Player player) {
         // 1. Creiamo un input usando il BLOC CO come se fosse nello slot del forno
         SingleRecipeInput recipeInput = new SingleRecipeInput(state.getBlock().asItem().getDefaultInstance());
 
