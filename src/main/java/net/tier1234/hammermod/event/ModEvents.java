@@ -1,27 +1,21 @@
 package net.tier1234.hammermod.event;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.tier1234.hammermod.HammerAdditions;
 import net.tier1234.hammermod.enchantment.ModEnchantments;
@@ -247,15 +241,18 @@ public class ModEvents {
         AutoSmeltEnchantmentEffect autosmeltEffect = new AutoSmeltEnchantmentEffect();
 
         for (ItemStack drop : drops) {
-            ItemStack smelted = autosmeltEffect.trySmeltBlock(level,state,tool,blockEntity,player);
-            finalDrops.add(smelted.isEmpty() ? drop.copy() : smelted);
+            ItemStack smelted = autosmeltEffect.trySmeltBlock(level, state, tool, blockEntity, player);
+            if (!smelted.isEmpty()) {
+                finalDrops.add(smelted); // aggiungi solo lo smeltato
+            }
         }
 
         for (ItemStack toDrop : finalDrops) {
-            if (!toDrop.isEmpty()) {
-                Block.popResource(level, pos, toDrop);
-            }
+            Block.popResource(level, pos, toDrop);
         }
+
+        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+        level.levelEvent(LevelEvent.PARTICLES_DESTROY_BLOCK, pos, Block.getId(state));
 
     }
 

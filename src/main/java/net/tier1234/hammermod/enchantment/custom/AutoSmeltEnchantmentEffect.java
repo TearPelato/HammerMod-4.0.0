@@ -108,17 +108,13 @@ public class AutoSmeltEnchantmentEffect implements EnchantmentEntityEffect {
             Item itemOfBlock = state.getBlock().asItem();
             List<ItemStack> normalDrops = Block.getDrops(state, level, BlockPos.containing(0,0,0), blockEntity, player, tool);
 
-            int dropCount = 0;
-            for (ItemStack drop : normalDrops) {
-                if (drop.is(itemOfBlock)) {
-                    dropCount += drop.getCount();
-                }
-            }
+            int dropCount = normalDrops.stream()
+                    .filter(d -> d.is(itemOfBlock))
+                    .mapToInt(ItemStack::getCount)
+                    .sum();
 
             if (dropCount > 0) {
                 smeltResult.setCount(smeltResult.getCount() * dropCount);
-            } else {
-                smeltResult.setCount(1);
             }
 
             return smeltResult;
