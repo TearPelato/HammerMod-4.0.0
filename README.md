@@ -1,25 +1,29 @@
 
-Installation information
-=======
+<a href="src/main/resources/hammer_addition_title.png" target="_blank">
+<img src="src/main/resources/hammer_addition_title.png" alt="Logo" width="512"/> 
+</a>
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+# HammerAdditions Project
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+Welcome to Hammer Additions Project.
+This mod Provide a new tool: **Hammers**!!
+Providing 2x2, 3x3 and 5x5 Hammers for each vanilla tiers and custom one(Adding 2 new dedicated
+tiers: Amethyst and Copper)
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+Check here my other projects:
+Click the Website Image(Modrinth or CurseForge)
+
+# Support
+Fon any issues feel free to join to my official Discord Server by clicking the image below.
+
+<a href="https://discord.gg/335vcPRg" target="_blank">
+<img src="src/main/resources/discord-plural_vector.png" alt="Logo" width="57"/> 
+</a>
+<a href="https://modrinth.com/user/Tier1234" target="_blank">
+<img src="src/main/resources/modrinth_vector.png" alt="Logo" width="57"/> 
+</a>
+<a href="https://www.curseforge.com/members/tier1234/projects" target="_blank">
+<img src="src/main/resources/curseforge_vector.png" alt="Logo" width="57"/> 
+</a>

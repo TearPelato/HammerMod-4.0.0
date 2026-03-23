@@ -24,6 +24,8 @@ public class ModTags {
         public static final TagKey<Item> AMETHYST_REPAIRABLE = createTag("amethyst_repairable");
         public static final TagKey<Item> COPPER_REPAIRABLE = createTag("copper_repairable");
 
+        public static final TagKey<Item> HAMMERS = createTag("hammers");
+
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(Identifier.fromNamespaceAndPath(HammerAdditions.MOD_ID, name));
         }

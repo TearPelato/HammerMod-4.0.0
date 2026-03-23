@@ -1,0 +1,33 @@
+{
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/toms-storage",
+  "promos": {
+    "1.21.1-latest": "4.3.3",
+    "1.21.4-latest": "4.3.3",
+    "1.21.5-latest": "4.3.3",
+    "1.21.6-latest": "4.2.0",
+    "1.21.7-latest": "4.2.0",
+    "1.21.8-latest": "4.3.3",
+    "1.21.9-latest": "4.3.0",
+    "1.21.10-latest": "4.3.3",
+    "1.21.11-latest": "4.3.3",
+    "26.1-snapshot-2-latest": "4.3.3"
+  },
+  "1.21.1": {
+    "4.3.3": "Little rework to UpdateChecker system"
+  },
+  "1.21.4": {
+    "4.3.3": "Little rework to UpdateChecker system"
+  },
+  "1.21.5": {
+    "4.3.3": "Little rework to UpdateChecker system"
+  },
+  "1.21.8": {
+    "4.3.3": "Little rework to UpdateChecker system"
+  },
+  "1.21.10": {
+    "4.3.3": "Little rework to UpdateChecker system"
+  },
+  "1.21.11": {
+    "4.3.3": "Little rework to UpdateChecker system"
+  }
+}

@@ -1,8 +1,9 @@
 package net.tier1234.hammermod.item;
 
 
-
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -10,6 +11,7 @@ import net.tier1234.hammermod.HammerAdditions;
 import net.tier1234.hammermod.item.custom.HammerItem;
 import net.tier1234.hammermod.item.custom.HammerItem2x2;
 import net.tier1234.hammermod.item.custom.HammerItem5x5;
+import net.tier1234.hammermod.item.custom.HammerTemplateItem;
 
 
 public class ModItems {
@@ -37,20 +39,34 @@ public class ModItems {
 
 //Hammers Basics
 
-    public static final DeferredItem<HammerItem> STONE_HAMMER = ITEMS.registerItem("stone_hammer",
-            (properties) -> new HammerItem(properties.pickaxe( ToolMaterial.STONE,7F, -3.5f)));
-    public static final DeferredItem<HammerItem> COPPER_HAMMER = ITEMS.registerItem("copper_hammer",
-            (properties) -> new HammerItem(properties.pickaxe( ModToolTiers.COPPER,7F, -3.5f)));
-    public static final DeferredItem<HammerItem> IRON_HAMMER = ITEMS.registerItem("iron_hammer",
-            (properties) -> new HammerItem(properties.pickaxe( ToolMaterial.IRON,7F, -3.5f)));
-    public static final DeferredItem<HammerItem> GOLD_HAMMER = ITEMS.registerItem("gold_hammer",
-            (properties) -> new HammerItem(properties.pickaxe( ToolMaterial.GOLD,7F, -3.5f)));
-    public static final DeferredItem<HammerItem> DIAMOND_HAMMER = ITEMS.registerItem("diamond_hammer",
-            (properties) -> new HammerItem(properties.pickaxe( ToolMaterial.DIAMOND,7F, -3.5f)));
-    public static final DeferredItem<HammerItem> NETHERITE_HAMMER = ITEMS.registerItem("netherite_hammer",
-            (properties) -> new HammerItem(properties.pickaxe( ToolMaterial.NETHERITE,7F, -3.5f)));
-    public static final DeferredItem<HammerItem> AMETHYST_HAMMER = ITEMS.registerItem("amethyst_hammer",
-            (properties) -> new HammerItem(properties.pickaxe( ModToolTiers.AMETHYST,7F, -3.5f)));
+    public static final DeferredItem<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
+            () -> new HammerItem(Tiers.STONE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.STONE, 7F, -3.5f))));
+
+
+    public static final DeferredItem<HammerItem> COPPER_HAMMER = ITEMS.register("copper_hammer",
+            () -> new HammerItem(ModToolTiers.COPPER, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.COPPER, 7F, -3.5F))));
+
+    public static final DeferredItem<HammerItem> IRON_HAMMER = ITEMS.register("iron_hammer",
+            () -> new HammerItem(Tiers.IRON, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.IRON, 7F, -3.5f))));
+
+    public static final DeferredItem<HammerItem> GOLD_HAMMER = ITEMS.register("gold_hammer",
+            () -> new HammerItem(Tiers.GOLD, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.GOLD, 7F, -3.5f))));
+
+    public static final DeferredItem<HammerItem> DIAMOND_HAMMER = ITEMS.register("diamond_hammer",
+            () -> new HammerItem(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 7F, -3.5f))));
+
+    public static final DeferredItem<HammerItem> NETHERITE_HAMMER = ITEMS.register("netherite_hammer",
+            () -> new HammerItem(Tiers.NETHERITE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 7F, -3.5f))));
+
+    public static final DeferredItem<HammerItem> AMETHYST_HAMMER = ITEMS.register("amethyst_hammer",
+            () -> new HammerItem(ModToolTiers.AMETHYST, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.AMETHYST, 7F,-3.5F))));
 
 
 
@@ -60,43 +76,69 @@ public class ModItems {
 
 
 //TinyHammers
-public static final DeferredItem<HammerItem2x2> TINY_STONE_HAMMER = ITEMS.registerItem("tiny_stone_hammer",
-        (properties) -> new HammerItem2x2(properties.pickaxe( ToolMaterial.STONE,7F, -3.5f)));
-    public static final DeferredItem<HammerItem2x2> TINY_COPPER_HAMMER = ITEMS.registerItem("tiny_copper_hammer",
-            (properties) -> new HammerItem2x2(properties.pickaxe( ModToolTiers.COPPER,7F, -3.5f)));
-    public static final DeferredItem<HammerItem2x2> TINY_IRON_HAMMER = ITEMS.registerItem("tiny_iron_hammer",
-            (properties) -> new HammerItem2x2(properties.pickaxe( ToolMaterial.IRON,7F, -3.5f)));
-    public static final DeferredItem<HammerItem2x2> TINY_GOLD_HAMMER = ITEMS.registerItem("tiny_gold_hammer",
-            (properties) -> new HammerItem2x2(properties.pickaxe( ToolMaterial.GOLD,7F, -3.5f)));
-    public static final DeferredItem<HammerItem2x2> TINY_DIAMOND_HAMMER = ITEMS.registerItem("tiny_diamond_hammer",
-            (properties) -> new HammerItem2x2(properties.pickaxe( ToolMaterial.DIAMOND,7F, -3.5f)));
-    public static final DeferredItem<HammerItem2x2> TINY_NETHERITE_HAMMER = ITEMS.registerItem("tiny_netherite_hammer",
-            (properties) -> new HammerItem2x2(properties.pickaxe( ToolMaterial.NETHERITE,7F, -3.5f)));;
-    public static final DeferredItem<HammerItem2x2> TINY_AMETHYST_HAMMER = ITEMS.registerItem("tiny_amethyst_hammer",
-            (properties) -> new HammerItem2x2(properties.pickaxe( ModToolTiers.AMETHYST,7F, -3.5f)));
+public static final DeferredItem<HammerItem2x2> TINY_STONE_HAMMER = ITEMS.register("tiny_stone_hammer",
+        () -> new HammerItem2x2(Tiers.STONE, new Item.Properties()
+                .attributes(PickaxeItem.createAttributes(Tiers.STONE, 7F, -3.5F))));
+
+    public static final DeferredItem<HammerItem2x2> TINY_COPPER_HAMMER = ITEMS.register("tiny_copper_hammer",
+            () -> new HammerItem2x2(ModToolTiers.COPPER, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.COPPER, 7F, -3.5F))));
+
+    public static final DeferredItem<HammerItem2x2> TINY_IRON_HAMMER = ITEMS.register("tiny_iron_hammer",
+            () -> new HammerItem2x2(Tiers.IRON, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.IRON, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem2x2> TINY_GOLD_HAMMER = ITEMS.register("tiny_gold_hammer",
+            () -> new HammerItem2x2(Tiers.GOLD, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.GOLD, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem2x2> TINY_DIAMOND_HAMMER = ITEMS.register("tiny_diamond_hammer",
+            () -> new HammerItem2x2(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem2x2> TINY_NETHERITE_HAMMER = ITEMS.register("tiny_netherite_hammer",
+            () -> new HammerItem2x2(Tiers.NETHERITE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem2x2> TINY_AMETHYST_HAMMER = ITEMS.register("tiny_amethyst_hammer",
+            () -> new HammerItem2x2(ModToolTiers.AMETHYST, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.AMETHYST, 7F,-3.5F))));
 
 
 
 //GiantHamemrs
-public static final DeferredItem<HammerItem5x5> GIANT_STONE_HAMMER = ITEMS.registerItem("giant_stone_hammer",
-        (properties) -> new HammerItem5x5(properties.pickaxe( ToolMaterial.STONE,7F, -3.5f)));
-    public static final DeferredItem<HammerItem5x5> GIANT_COPPER_HAMMER = ITEMS.registerItem("giant_copper_hammer",
-            (properties) -> new HammerItem5x5(properties.pickaxe(ModToolTiers.COPPER,7F, -3.5f)));
-    public static final DeferredItem<HammerItem5x5> GIANT_IRON_HAMMER = ITEMS.registerItem("giant_iron_hammer",
-            (properties) -> new HammerItem5x5(properties.pickaxe( ToolMaterial.IRON,7F, -3.5f)));
-    public static final DeferredItem<HammerItem5x5> GIANT_GOLD_HAMMER = ITEMS.registerItem("giant_gold_hammer",
-            (properties) -> new HammerItem5x5(properties.pickaxe( ToolMaterial.GOLD,7F, -3.5f)));
-    public static final DeferredItem<HammerItem5x5> GIANT_DIAMOND_HAMMER = ITEMS.registerItem("giant_diamond_hammer",
-            (properties) -> new HammerItem5x5(properties.pickaxe( ToolMaterial.DIAMOND,7F, -3.5f)));
-    public static final DeferredItem<HammerItem5x5> GIANT_NETHERITE_HAMMER = ITEMS.registerItem("giant_netherite_hammer",
-            (properties) -> new HammerItem5x5(properties.pickaxe( ToolMaterial.NETHERITE,7F, -3.5f)));
-    public static final DeferredItem<HammerItem5x5> GIANT_AMETHYST_HAMMER = ITEMS.registerItem("giant_amethyst_hammer",
-            (properties) -> new HammerItem5x5(properties.pickaxe( ModToolTiers.AMETHYST,7F, -3.5f)));
+public static final DeferredItem<HammerItem5x5> GIANT_STONE_HAMMER = ITEMS.register("giant_stone_hammer",
+        () -> new HammerItem5x5(Tiers.STONE, new Item.Properties()
+                .attributes(PickaxeItem.createAttributes(Tiers.STONE, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem5x5> GIANT_COPPER_HAMMER = ITEMS.register("giant_copper_hammer",
+            () -> new HammerItem5x5(ModToolTiers.COPPER, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.COPPER, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem5x5> GIANT_IRON_HAMMER = ITEMS.register("giant_iron_hammer",
+            () -> new HammerItem5x5(Tiers.IRON, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.IRON, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem5x5> GIANT_GOLD_HAMMER = ITEMS.register("giant_gold_hammer",
+            () -> new HammerItem5x5(Tiers.GOLD, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.GOLD, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem5x5> GIANT_DIAMOND_HAMMER = ITEMS.register("giant_diamond_hammer",
+            () -> new HammerItem5x5(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.DIAMOND, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem5x5> GIANT_NETHERITE_HAMMER = ITEMS.register("giant_netherite_hammer",
+            () -> new HammerItem5x5(Tiers.NETHERITE, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 7F,-3.5F))));
+
+    public static final DeferredItem<HammerItem5x5> GIANT_AMETHYST_HAMMER = ITEMS.register("giant_amethyst_hammer",
+            () -> new HammerItem5x5(ModToolTiers.AMETHYST, new Item.Properties()
+                    .attributes(PickaxeItem.createAttributes(ModToolTiers.AMETHYST, 7F,-3.5F))));
 
 
-    //Templates
-    public static final DeferredItem<Item> HAMMER_SMITHING_TEMPLATE = ITEMS.registerItem("hammer_smithing_template",
-            SmithingTemplateItem::createNetheriteUpgradeTemplate);
+    //Template
+    public static final DeferredItem<Item> HAMMER_SMITHING_TEMPLATE = ITEMS.register("hammer_smithing_template",
+            () -> HammerTemplateItem.createhammerUpgradeTemplate());
 
 
 
