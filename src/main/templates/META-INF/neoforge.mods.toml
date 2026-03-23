@@ -3,26 +3,24 @@ modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
 [[mods]]
-modId="hammer_mod"
+modId= "${mod_id}"
 version="${mod_version}"
-displayName="Hammer Additions" #mandatory
+displayName="${mod_name}"
 logoFile = "hammer_addition_title.png"
 authors="${mod_authors}" #optional
 description='''${mod_description}'''
 
 
-[[dependencies.hammer_mod]]
-
+[[dependencies."${mod_id}"]]
     modId="neoforge"
     type="required"
     versionRange="${neo_version_range}"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.hammer_mod]]
+[[dependencies."${mod_id}"]]
     modId="minecraft"
     type="required"
-    # This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"

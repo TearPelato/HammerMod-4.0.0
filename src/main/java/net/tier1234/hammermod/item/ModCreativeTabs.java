@@ -18,7 +18,7 @@ public class ModCreativeTabs {
             ()-> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.STONE_HEAD.get()))
                     .title(Component.translatable("creativetab.hammer_mod.hammer_mod_items"))
                     .withSearchBar()
-                    .displayItems((itemDisplayParameters, output) -> {
+                    .displayItems((parameters, output) -> {
                         output.accept(ModItems.STONE_HEAD);
                         output.accept(ModItems.IRON_HEAD);
                         output.accept(ModItems.COPPER_HEAD);
