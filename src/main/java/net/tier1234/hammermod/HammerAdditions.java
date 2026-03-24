@@ -1,13 +1,6 @@
 package net.tier1234.hammermod;
 
-import net.tier1234.hammermod.enchantments.ModEnchantmentEffects;
-import net.tier1234.hammermod.item.ModCreativeTabs;
-import net.tier1234.hammermod.item.ModItems;
-import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -17,6 +10,10 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.tier1234.hammermod.enchantments.ModEnchantmentEffects;
+import net.tier1234.hammermod.item.ModCreativeTabs;
+import net.tier1234.hammermod.item.ModItems;
+import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(HammerAdditions.MOD_ID)
