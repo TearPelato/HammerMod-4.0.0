@@ -17,21 +17,21 @@ public class ModItems {
 
 //Items
     public static final DeferredItem<Item> STONE_HEAD = ITEMS.registerItem("stone_head",
-        Item:: new,new Item.Properties());
+       properties -> new Item(properties));
     public static final DeferredItem<Item> IRON_HEAD = ITEMS.registerItem("iron_head",
-            Item:: new,new Item.Properties());
+    properties -> new Item(properties));
     public static final DeferredItem<Item> GOLD_HEAD = ITEMS.registerItem("gold_head",
-            Item:: new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> DIAMOND_HEAD = ITEMS.registerItem("diamond_head",
-            Item:: new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> NETHERITE_HEAD = ITEMS.registerItem("netherite_head",
-            Item:: new,new Item.Properties());
+    properties -> new Item(properties));
     public static final DeferredItem<Item> TINY_STICK = ITEMS.registerItem("tiny_stick",
-            Item::new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> COPPER_HEAD = ITEMS.registerItem("copper_head",
-            Item::new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> AMETHYST_HEAD = ITEMS.registerItem("amethyst_head",
-            Item::new, new Item.Properties());
+              properties -> new Item(properties));
 
 
 
@@ -71,7 +71,7 @@ public static final DeferredItem<HammerItem2x2> TINY_STONE_HAMMER = ITEMS.regist
     public static final DeferredItem<HammerItem2x2> TINY_DIAMOND_HAMMER = ITEMS.registerItem("tiny_diamond_hammer",
             (properties) -> new HammerItem2x2(properties.pickaxe( ToolMaterial.DIAMOND,7F, -3.5f)));
     public static final DeferredItem<HammerItem2x2> TINY_NETHERITE_HAMMER = ITEMS.registerItem("tiny_netherite_hammer",
-            (properties) -> new HammerItem2x2(properties.pickaxe( ToolMaterial.NETHERITE,7F, -3.5f)));;
+            (properties) -> new HammerItem2x2(properties.pickaxe( ToolMaterial.NETHERITE,7F, -3.5f)));
     public static final DeferredItem<HammerItem2x2> TINY_AMETHYST_HAMMER = ITEMS.registerItem("tiny_amethyst_hammer",
             (properties) -> new HammerItem2x2(properties.pickaxe( ModToolTiers.AMETHYST,7F, -3.5f)));
 
@@ -102,19 +102,19 @@ public static final DeferredItem<HammerItem5x5> GIANT_STONE_HAMMER = ITEMS.regis
 
 //Items
     public static final DeferredItem<Item> GIANT_DIAMOND_HEAD = ITEMS.registerItem("giant_diamond_head",
-            Item:: new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> GIANT_STONE_HEAD = ITEMS.registerItem("giant_stone_head",
-            Item:: new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> GIANT_IRON_HEAD = ITEMS.registerItem("giant_iron_head",
-            Item:: new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> GIANT_GOLD_HEAD = ITEMS.registerItem("giant_gold_head",
-            Item:: new,new Item.Properties());
+    properties -> new Item(properties));
     public static final DeferredItem<Item> GIANT_NETHERITE_HEAD = ITEMS.registerItem("giant_netherite_head",
-            Item:: new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> GIANT_COPPER_HEAD = ITEMS.registerItem("giant_copper_head",
-            Item:: new, new Item.Properties());
+              properties -> new Item(properties));
     public static final DeferredItem<Item> GIANT_AMETHYST_HEAD = ITEMS.registerItem("giant_amethyst_head",
-            Item:: new, new Item.Properties());
+              properties -> new Item(properties));
 
 
 
